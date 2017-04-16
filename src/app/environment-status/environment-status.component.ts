@@ -4,11 +4,11 @@ import {EnvironmentStatus} from '../model/status';
 @Component({
   selector: 'app-environment-status',
   templateUrl: './environment-status.component.html',
-  styleUrls: ['./environment-status.component.css']
+  styleUrls: ['./environment-status.component.scss']
 })
 export class EnvironmentStatusComponent implements OnInit {
   @Input()
-  private env: EnvironmentStatus;
+  env: EnvironmentStatus;
 
   constructor() {
   }

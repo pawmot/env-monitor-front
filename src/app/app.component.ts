@@ -5,7 +5,7 @@ import {EnvironmentStatus} from './model/status';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   // TODO: consider changing this to a Map
