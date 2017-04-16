@@ -1,3 +1,7 @@
 <h1>
   {{title}}
 </h1>
+<h2>
+  {{count}}
+</h2>
+<app-environment-status *ngFor="let env of envs" [env]="env"></app-environment-status>
