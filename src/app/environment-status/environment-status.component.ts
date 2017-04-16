@@ -9,10 +9,11 @@ import {EnvironmentStatus} from '../model/status';
 export class EnvironmentStatusComponent implements OnInit {
   @Input()
   env: EnvironmentStatus;
-  shown = true;
-  iconName = 'keyboard_arrow_down';
+  shown = false;
+  iconName: string;
 
   constructor() {
+    this.setArrow();
   }
 
   ngOnInit() {
@@ -20,6 +21,10 @@ export class EnvironmentStatusComponent implements OnInit {
 
   toggleContent() {
     this.shown = !this.shown;
+    this.setArrow();
+  }
+
+  private setArrow() {
     this.iconName = this.shown ? 'keyboard_arrow_down' : 'keyboard_arrow_right';
   }
 }

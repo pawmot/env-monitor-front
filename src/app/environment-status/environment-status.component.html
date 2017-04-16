@@ -1,5 +1,10 @@
 <md-card>
-  <md-card-title class="env-card-title">{{env.name}} <button md-mini-fab [color]="'accent'" (click)="toggleContent()"><md-icon>{{iconName}}</md-icon></button></md-card-title>
+  <md-card-title class="env-card-title">
+    <button md-mini-fab [color]="'primary'" (click)="toggleContent()">
+      <md-icon>{{iconName}}</md-icon>
+    </button>
+    {{env.name}}
+  </md-card-title>
   <md-card-content>
 <pre [hidden]="!shown">
 {{env.groups | json}}
