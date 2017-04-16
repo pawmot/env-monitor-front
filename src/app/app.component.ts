@@ -10,7 +10,6 @@ import {EnvironmentStatus} from './model/status';
 export class AppComponent {
   // TODO: consider changing this to a Map
   envs: Array<EnvironmentStatus> = [];
-  title = 'Environment monitor works!';
 
   constructor(private svc: WebSocketService) {
     svc.connect('ws://localhost:8080/statusWs')
@@ -21,7 +20,7 @@ export class AppComponent {
           this.envs.push(env);
           this.envs.sort((e1, e2) => e1.name < e2.name ? -1 : 1);
         } else {
-          this.envs[idx] = env;
+          this.envs[idx].groups = env.groups;
         }
       });
   }
