@@ -5,6 +5,8 @@
 export interface EnvironmentStatus {
   name: string;
   groups: Array<GroupStatus>;
+  // TODO: find a better way to propagate error information!
+  error: boolean;
 }
 
 export interface GroupStatus {
@@ -14,11 +16,19 @@ export interface GroupStatus {
 
 export interface FullServiceStatus {
   name: string;
-  status: ServiceStatus;
+  report: ServiceStatus;
   additionalInfo: Map<String, String>;
 }
 
 export interface ServiceStatus {
   status: String;
   statusCode: number;
+}
+
+export function hasError(status: GroupStatus|EnvironmentStatus): boolean {
+  if ((<GroupStatus>status).services) {
+    return (<GroupStatus>status).services.some(s => s.report.status !== 'Healthy');
+  } else {
+    return (<EnvironmentStatus>status).groups.some(g => hasError(g));
+  }
 }

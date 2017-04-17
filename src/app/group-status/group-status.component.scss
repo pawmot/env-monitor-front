@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+@mixin theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .group-card {
+    background-color: mat-color($accent);
+  }
+
+  .group-card.error {
+    background-color: mat-color($warn);
+  }
+}
+
+@import "../../theme.scss";
+
+@include theme($theme)

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {WebSocketService} from './web-socket.service';
-import {EnvironmentStatus} from './model/status';
+import {EnvironmentStatus, hasError} from './model/status';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +17,12 @@ export class AppComponent {
         const env = <EnvironmentStatus> JSON.parse(ev.data);
         const idx = this.envs.findIndex((e) => e.name === env.name);
         if (idx === -1) {
+          env.error = hasError(env);
           this.envs.push(env);
           this.envs.sort((e1, e2) => e1.name < e2.name ? -1 : 1);
         } else {
           this.envs[idx].groups = env.groups;
+          this.envs[idx].error = hasError(env);
         }
       });
   }

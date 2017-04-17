@@ -1,0 +1,8 @@
+<md-card class="group-card" [ngClass]="{'error': error}">
+  <md-card-title>{{group.name}}</md-card-title>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let svc of group.services"><p><strong>{{svc.name}}</strong> {{svc.report.status}}</p></md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

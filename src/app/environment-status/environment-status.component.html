@@ -1,14 +1,13 @@
 <md-card>
   <md-card-title class="env-card-title">
-    <button md-mini-fab [color]="'primary'" (click)="toggleContent()">
+    <button md-mini-fab [color]="env.error ? 'warn' : 'accent'" (click)="toggleContent()">
       <md-icon>{{iconName}}</md-icon>
     </button>
     {{env.name}}
   </md-card-title>
   <md-card-content>
-<pre [hidden]="!shown">
-{{env.groups | json}}
-</pre>
+    <div [hidden]="!shown">
+      <app-group-status *ngFor="let gr of env.groups" [group]="gr"></app-group-status>
+    </div>
   </md-card-content>
 </md-card>
-

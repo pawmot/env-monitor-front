@@ -8,11 +8,13 @@ import {injectables} from './web-socket.service';
 import {EnvironmentStatusComponent} from './environment-status/environment-status.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialDependenciesModule} from './material-dependencies/material-dependencies.module';
+import { GroupStatusComponent } from './group-status/group-status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EnvironmentStatusComponent
+    EnvironmentStatusComponent,
+    GroupStatusComponent
   ],
   imports: [
     BrowserModule,
