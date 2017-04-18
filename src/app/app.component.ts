@@ -12,7 +12,7 @@ export class AppComponent {
   envs: Array<EnvironmentStatus> = [];
 
   constructor(private svc: WebSocketService) {
-    svc.connect('ws://localhost:8080/statusWs')
+    svc.connect('ws://' + location.host + '/statusWs')
       .subscribe(ev => {
         const env = <EnvironmentStatus> JSON.parse(ev.data);
         const idx = this.envs.findIndex((e) => e.name === env.name);
