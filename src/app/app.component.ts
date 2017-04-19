@@ -19,7 +19,7 @@ export class AppComponent {
         if (idx === -1) {
           env.error = hasError(env);
           this.envs.push(env);
-          this.envs.sort((e1, e2) => e1.name < e2.name ? -1 : 1);
+          this.envs.sort((e1, e2) => e1.ordinal < e2.ordinal ? -1 : 1);
         } else {
           this.envs[idx].groups = env.groups;
           this.envs[idx].error = hasError(env);

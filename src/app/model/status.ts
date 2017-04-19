@@ -5,6 +5,7 @@
 export interface EnvironmentStatus {
   name: string;
   groups: Array<GroupStatus>;
+  ordinal: number;
   // TODO: find a better way to propagate error information!
   error: boolean;
 }
