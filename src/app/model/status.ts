@@ -1,6 +1,4 @@
-/**
- * Created by pawmot on 15.04.17.
- */
+import {Progress} from './progress';
 
 export interface EnvironmentStatus {
   name: string;
@@ -8,6 +6,8 @@ export interface EnvironmentStatus {
   ordinal: number;
   // TODO: find a better way to propagate error information!
   error: boolean;
+  // TODO: REFACTOR THIS!
+  progress: Progress;
 }
 
 export interface GroupStatus {
@@ -26,7 +26,7 @@ export interface ServiceStatus {
   statusCode: number;
 }
 
-export function hasError(status: GroupStatus|EnvironmentStatus): boolean {
+export function hasError(status: GroupStatus | EnvironmentStatus): boolean {
   if ((<GroupStatus>status).services) {
     return (<GroupStatus>status).services.some(s => s.report.status !== 'Healthy');
   } else {

@@ -3,7 +3,15 @@
     <button md-mini-fab [color]="env.error ? 'warn' : 'accent'" (click)="toggleContent()">
       <md-icon>{{iconName}}</md-icon>
     </button>
+    <md-grid-list cols="2" rowHeight="80px">
+      
+    </md-grid-list>
     {{env.name}}
+    <md-progress-bar
+      [hidden]="env.progress.ready == env.progress.total"
+      [mode]="'determinate'"
+      [value]="100 * env.progress.ready/env.progress.total">
+    </md-progress-bar>
   </md-card-title>
   <md-card-content>
     <div [hidden]="!shown">
