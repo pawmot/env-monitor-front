@@ -21,13 +21,11 @@ export class AppComponent {
             const env = <EnvironmentStatus> data;
             const idx = this.envs.findIndex((e) => e.name === env.name);
             if (idx === -1) {
-              console.log(`Creating new env ${env.name}`);
               env.error = hasError(env);
               env.progress = <Progress> { ready: 0, total: 0};
               this.envs.push(env);
               this.envs.sort((e1, e2) => e1.ordinal < e2.ordinal ? -1 : 1);
             } else {
-              console.log(`Updating env ${env.name}`);
               this.envs[idx].groups = env.groups;
               this.envs[idx].error = hasError(env);
             }
@@ -36,7 +34,6 @@ export class AppComponent {
 
           case 'progress': {
             const progress = <Progress> data;
-            console.log(`Got progress for env ${progress.envName}: ${progress.ready}/${progress.total}`);
             const idx = this.envs.findIndex((e) => e.name === progress.envName);
             if (idx !== -1) {
               const env = this.envs[idx];

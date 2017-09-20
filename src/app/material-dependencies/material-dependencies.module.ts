@@ -1,12 +1,14 @@
 import {NgModule} from '@angular/core';
 import {
   MdButtonModule, MdCardModule, MdCoreModule, MdGridListModule, MdIconModule, MdListModule,
-  MdProgressBarModule
+  MdProgressBarModule, StyleModule
 } from '@angular/material';
+import {ObserversModule} from '@angular/cdk/observers';
+import {PlatformModule} from '@angular/cdk/platform';
 
 @NgModule({
-  imports: [MdCoreModule, MdCardModule, MdListModule, MdButtonModule, MdIconModule, MdProgressBarModule, MdGridListModule],
-  exports: [MdCoreModule, MdCardModule, MdListModule, MdButtonModule, MdIconModule, MdProgressBarModule, MdGridListModule]
+  imports: [MdCardModule, MdListModule, MdButtonModule, MdIconModule, MdProgressBarModule, MdGridListModule, ObserversModule, PlatformModule, StyleModule],
+  exports: [MdCardModule, MdListModule, MdButtonModule, MdIconModule, MdProgressBarModule, MdGridListModule, ObserversModule, PlatformModule, StyleModule]
 })
 export class MaterialDependenciesModule {
 }
